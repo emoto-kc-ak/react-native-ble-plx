@@ -53,5 +53,5 @@ dependencies {
     // implementation "androidx.annotation:annotation:1.1.0"
     implementation "com.facebook.react:react-native:+"
     // links the custom MultiPlatformBleAdapter
-    implementation 'com.github.emoto-kc-ak:MultiPlatformBleAdapter:ba324b9cf31bcbfb47310b862e0cda3c5e6ad8d3'
+    implementation 'com.github.emoto-kc-ak:MultiPlatformBleAdapter:35dc5ef5525669d8ac5ef19104766a4828c2c77e'
 }
