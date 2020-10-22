@@ -170,6 +170,7 @@ public class BleClientManager extends ReactContextBaseJavaModule {
 
         int scanMode = DEFAULT_SCAN_MODE_LOW_POWER;
         int callbackType = DEFAULT_CALLBACK_TYPE_ALL_MATCHES;
+        ReadableArray filteredDeviceIds = null;
 
         if (options != null) {
             if (options.hasKey("scanMode") && options.getType("scanMode") == ReadableType.Number) {
@@ -178,10 +179,14 @@ public class BleClientManager extends ReactContextBaseJavaModule {
             if (options.hasKey("callbackType") && options.getType("callbackType") == ReadableType.Number) {
                 callbackType = options.getInt("callbackType");
             }
+            if (options.hasKey("filteredDeviceIds") && options.getType("filteredDeviceIds") == ReadableType.Array) {
+                filteredDeviceIds = options.getArray("filteredDeviceIds");
+            }
         }
 
         bleAdapter.startDeviceScan(
                 filteredUUIDs != null ? ReadableArrayConverter.toStringArray(filteredUUIDs) : null,
+                filteredDeviceIds != null ? ReadableArrayConverter.toStringArray(filteredDeviceIds) : null,
                 scanMode, callbackType,
                 new OnEventCallback<ScanResult>() {
                     @Override

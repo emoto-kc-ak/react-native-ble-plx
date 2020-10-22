@@ -34,6 +34,10 @@ repositories {
     mavenLocal()
     jcenter()
     maven {
+        // custom maven repository
+        url 'https://emoto-kc-ak.github.io/maven-repository'
+    }
+    maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
         url "$projectDir/../../../node_modules/react-native/android"
     }
@@ -45,6 +49,9 @@ repositories {
 }
 
 dependencies {
+    // resolve the following library to build ouside a react native project.
+    // implementation "androidx.annotation:annotation:1.1.0"
     implementation "com.facebook.react:react-native:+"
-    implementation 'com.github.Polidea:MultiPlatformBleAdapter:d2279e0621b285f2d16382af668ae3981abf0639'
+    // links the custom MultiPlatformBleAdapter
+    implementation 'com.github.emoto-kc-ak:MultiPlatformBleAdapter:ba324b9cf31bcbfb47310b862e0cda3c5e6ad8d3'
 }
