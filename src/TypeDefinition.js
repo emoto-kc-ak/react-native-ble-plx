@@ -178,6 +178,13 @@ export interface ScanOptions {
    * @instance
    */
   callbackType?: $Values<typeof ScanCallbackType>;
+
+  /**
+   * Filtered device IDs for Bluetooth LE scan.
+   * @memberof ScanOptions
+   * @instance
+   */
+  filteredDeviceIds?: Array<DeviceId>;
 }
 
 /**
